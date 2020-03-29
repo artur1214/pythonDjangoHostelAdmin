@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+    {% for i in rooms %}
+
+        <div>
+        <h1>{{ i.id }}</h1>
+        {% for pic in i.photolist_set.all %}
+            <img  class="mini-img" src="/media/{{ pic.picture }}" alt="Фото">
+        {% endfor %}
+
+        </div>
+
+    {%   endfor %}
+</body>
+</html>
